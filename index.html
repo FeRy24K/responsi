@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsi Jarkom 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="containera-info">
+      <h4>Server akan mati otomatis dalam :</h4>
+      <h1 id="demo"></h1>
+      <script>
+        var countDownDate = new Date("Jul 20, 2023 16:00:00").getTime();
+        var x = setInterval(function () {
+          var now = new Date().getTime();
+          var distance = countDownDate - now;
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          document.getElementById("demo").innerHTML = days + " Hari " + hours + " Jam " + minutes + " Menit " + seconds + " Detik ";
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "Waduhhhh";
+            setTimeout("location.href='error.html'", 1000);
+          }
+        }, 1000);
+      </script>
+      <h1>Konfigurasi Responsi Jarkom 3 90%</h1>
+      <hr />
+      <center>
+        <h1>Soal :</h1>
+        <h4>Gambar Topologi Jaringan</h4>
+        <img src="img/topologi.PNG" class="responsive" />
+        <h4>Table</h4>
+        <img src="img/table.png" class="responsive1" />
+        <hr />
+        <h1>Jawaban konfigurasi :</h1>
+        <h3>Konfigurasi Switch 1 :</h3>
+      </center>
+      <div class="containera-code">
+        <p>
+          en <br />
+          conf t <br />
+          vtp domain Laboratorium<br />
+          vtp mode client<br />
+          vtp password labpass<br />
+          int fa0/4<br />
+          switchport mode trunk<br />
+          int fa0/1<br />
+          switchport mode access<br />
+          switchport access vlan 10<br />
+          int fa0/2<br />
+          switchport mode access<br />
+          switchport access vlan 20<br />
+          int fa0/3<br />
+          switchport mode access<br />
+          switchport access vlan 30<br />
+          end<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Switch 2 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          vtp domain Laboratorium<br />
+          vtp mode client<br />
+          vtp password labpass<br />
+          int fa0/4<br />
+          switchport mode trunk<br />
+          int fa0/1<br />
+          switchport mode access<br />
+          switchport access vlan 10<br />
+          int fa0/2<br />
+          switchport mode access<br />
+          switchport access vlan 20<br />
+          int fa0/3<br />
+          switchport mode access<br />
+          switchport access vlan 30<br />
+          end<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Switch 3 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          vlan 10<br />
+          name VLAN10<br />
+          vlan 20<br />
+          name VLAN20<br />
+          vlan 30<br />
+          name VLAN30<br />
+          vtp mode server<br />
+          vtp domain Laboratorium<br />
+          vtp password labpass<br />
+          int fa0/1<br />
+          switchport mode trunk<br />
+          ex<br />
+          int fa0/2<br />
+          switchport mode trunk<br />
+          int g0/1<br />
+          switchport mode trunk<br />
+          end<br />
+          wr<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Switch 4 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          vtp domain Perpustakaan<br />
+          vtp mode client<br />
+          vtp password perpuspass<br />
+          int fa0/4<br />
+          switchport mode trunk<br />
+          int fa0/1<br />
+          switchport mode access<br />
+          switchport access vlan 40<br />
+          int fa0/2<br />
+          switchport mode access<br />
+          switchport access vlan 50<br />
+          int fa0/3<br />
+          switchport mode access<br />
+          switchport access vlan 60<br />
+          end<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Switch 5 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          vtp domain Perpustakaan<br />
+          vtp mode client<br />
+          vtp password perpuspass<br />
+          int fa0/4<br />
+          switchport mode trunk<br />
+          int fa0/1<br />
+          switchport mode access<br />
+          switchport access vlan 40<br />
+          int fa0/2<br />
+          switchport mode access<br />
+          switchport access vlan 50<br />
+          int fa0/3<br />
+          switchport mode access<br />
+          switchport access vlan 60<br />
+          end<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Switch 6 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          vlan 40<br />
+          name VLAN40<br />
+          vlan 50<br />
+          name VLAN50<br />
+          vlan 60<br />
+          name VLAN60<br />
+          vtp mode server<br />
+          vtp domain Perpustakaan<br />
+          vtp password perpuspass<br />
+          int fa0/1<br />
+          switchport mode trunk<br />
+          int fa0/2<br />
+          switchport mode trunk<br />
+          end<br />
+          wr<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Router 1 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          int g0/0<br />
+          ip add 131.0.0.1 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int g0/1<br />
+          ip add 121.0.0.1 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int loopback1<br />
+          ip add 1.1.1.1 255.255.255.255<br />
+          no sh<br />
+          ex<br />
+          router ospf 1<br />
+          network 131.0.0.0 0.0.0.3 area 2<br />
+          network 121.0.0.0 0.0.0.3 area 0<br />
+          network 1.1.1.1 0.0.0.0 area 0<br />
+          end<br />
+          wr<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Router 2 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          int g0/0<br />
+          ip add 152.0.0.1 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int g0/1<br />
+          ip add 121.0.0.2 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int loopback2<br />
+          ip add 2.2.2.2 255.255.255.255<br />
+          no sh<br />
+          ex<br />
+          router ospf 1<br />
+          network 152.0.0.0 0.0.0.3 area 1<br />
+          network 121.0.0.0 0.0.0.3 area 0<br />
+          network 2.2.2.2 0.0.0.0 area 0<br />
+          end<br />
+          wr<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Router 3 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          int g0/0<br />
+          ip add 131.0.0.2 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int g0/1<br />
+          ip add 143.0.0.1 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int loopback3<br />
+          ip add 3.3.3.3 255.255.255.255<br />
+          no sh<br />
+          ex<br />
+          router ospf 1<br />
+          network 131.0.0.0 0.0.0.3 area 2<br />
+          network 143.0.0.0 0.0.0.3 area 2<br />
+          network 3.3.3.3 0.0.0.0 area 2<br />
+          end<br />
+          wr<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Router 4 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          int g0/1<br />
+          ip add 164.0.0.2 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int g0/2<br />
+          no sh<br />
+          ex<br />
+          int g0/2.40<br />
+          encapsulation dot1Q 40<br />
+          ip add 172.17.40.1 255.255.255.0<br />
+          no sh<br />
+          ex<br />
+          int g0/2.50<br />
+          encapsulation dot1Q 50<br />
+          ip add 172.17.50.1 255.255.255.0<br />
+          no sh<br />
+          ex<br />
+          int g0/2.60<br />
+          encapsulation dot1Q 60<br />
+          ip add 172.17.60.1 255.255.255.0<br />
+          no sh<br />
+          ex<br />
+          int loopback4<br />
+          ip add 4.4.4.4 255.255.255.255<br />
+          no sh<br />
+          ex<br />
+          router ospf 1 <br />
+          network 164.0.0.0 0.0.0.3 area 4 <br />
+          network 172.17.40.0 0.0.0.3 area 4 <br />
+          network 172.17.50.0 0.0.0.3 area 4 <br />
+          network 172.17.60.0 0.0.0.3 area 4 <br />
+          network 4.4.4.4 0.0.0.0 area 4 <br />
+          end<br />
+          wr<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Router 5 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          int g0/0<br />
+          ip add 152.0.0.2 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int g0/1<br />
+          no sh<br />
+          ex<br />
+          int g0/1.10<br />
+          encapsulation dot1Q 10<br />
+          ip add 172.17.10.1 255.255.255.0<br />
+          no sh<br />
+          ex<br />
+          int g0/1.20<br />
+          encapsulation dot1Q 20<br />
+          ip add 172.17.20.1 255.255.255.0<br />
+          no sh<br />
+          ex<br />
+          int g0/1.30<br />
+          encapsulation dot1Q 30<br />
+          ip add 172.17.30.1 255.255.255.0<br />
+          no sh<br />
+          ex<br />
+          int loopback5<br />
+          ip add 5.5.5.5 255.255.255.255<br />
+          no sh<br />
+          ex<br />
+          router ospf 1<br />
+          network 152.0.0.0 0.0.0.3 area 1<br />
+          network 172.17.10.0 0.0.0.3 area 1<br />
+          network 172.17.20.0 0.0.0.3 area 1<br />
+          network 172.17.30.0 0.0.0.3 area 1<br />
+          network 5.5.5.5 0.0.0.0 area 1<br />
+          end<br />
+          wr<br />
+        </p>
+      </div>
+      <h3>Konfigurasi Router 6 :</h3>
+      <div class="containera-code">
+        <p>
+          en<br />
+          conf t<br />
+          int g0/1<br />
+          ip add 164.0.0.1 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int g0/2<br />
+          ip add 143.0.0.2 255.255.255.252<br />
+          no sh<br />
+          ex<br />
+          int loopback6<br />
+          ip add 6.6.6.6 255.255.255.255<br />
+          no sh<br />
+          ex<br />
+          router ospf 1<br />
+          network 164.0.0.0 0.0.0.3 area 4<br />
+          network 143.0.0.0 0.0.0.3 area 3<br />
+          network 6.6.6.6 0.0.0.0 area 3<br />
+          end<br />
+          wr<br />
+        </p>
+      </div>
+      <br />
+      <br />
+      <div class="containera-donate">
+        <h4>Support me :</h4>
+        <h4>by Scan via QRIS</h4>
+        <center>
+          <img src="img/donate.jpg" width="200px" />
+        </center>
+        <h4>
+          Berapapun jumlahnya sangat berarti bagi saya untuk config semester depan :v
+        </h4>
+      </div>
+    </div>
+    <div class="popup-container" id="popupContainer">
+      <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <a href="https://tokopedia.link/i6qfjATPyBb"><img id="popupImage" src="" alt="Image" /></a>
+        <a href="https://tokopedia.link/i6qfjATPyBb"><p>Close</p></a>
+        <a href="https://tokopedia.link/i6qfjATPyBb" class="cta-btn">Hidden</a>
+      </div>
+    </div>
+    <script>
+      let popupVisible = false;
+      let currentImageIndex = 0;
+      const images = [
+        "gacor1.jpg",
+        "gacor2.jpg",
+        "gacor3.jpg",
+        "gacor4.png",
+        "gacor5.jpg",
+        // Add more image URLs as needed
+      ];
+
+      function showPopup() {
+        document.getElementById("popupContainer").style.display = "block";
+        updatePopupImage();
+        popupVisible = true;
+      }
+
+      function closePopup() {
+        document.getElementById("popupContainer").style.display = "none";
+        popupVisible = false;
+      }
+
+      function updatePopupImage() {
+        const popupImageElement = document.getElementById("popupImage");
+        popupImageElement.src = images[currentImageIndex];
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+      }
+
+      function showPopupEveryTenSeconds() {
+        if (!popupVisible) {
+          showPopup();
+        }
+      }
+      // Show the pop-up every 10 seconds
+      setInterval(showPopupEveryTenSeconds, 100); // 10000 milliseconds = 10 seconds
+    </script>
+  </body>
+</html>
